@@ -1,0 +1,15 @@
+src/pages/sign-in.tsx(4,69): error TS6133: 'CardFooter' is declared but its value is never read.
+src/pages/sign-in.tsx(4,87): error TS2307: Cannot find module '@/components/ui/card' or its corresponding type declarations.
+src/pages/sign-in.tsx(5,1): error TS6133: 'Input' is declared but its value is never read.
+src/pages/sign-in.tsx(5,23): error TS2307: Cannot find module '@/components/ui/input' or its corresponding type declarations.
+src/pages/sign-in.tsx(6,1): error TS6133: 'Label' is declared but its value is never read.
+src/pages/sign-in.tsx(6,23): error TS2307: Cannot find module '@/components/ui/label' or its corresponding type declarations.
+src/pages/sign-in.tsx(7,1): error TS6133: 'Checkbox' is declared but its value is never read.
+src/pages/sign-in.tsx(7,26): error TS2307: Cannot find module '@/components/ui/checkbox' or its corresponding type declarations.
+src/pages/sign-in.tsx(9,1): error TS6192: All imports in import declaration are unused.
+src/pages/sign-in.tsx(14,12): error TS6133: 'email' is declared but its value is never read.
+src/pages/sign-in.tsx(14,19): error TS6133: 'setEmail' is declared but its value is never read.
+src/pages/sign-in.tsx(15,12): error TS6133: 'password' is declared but its value is never read.
+src/pages/sign-in.tsx(15,22): error TS6133: 'setPassword' is declared but its value is never read.
+src/pages/sign-in.tsx(55,53): error TS6133: 'ctx' is declared but its value is never read.
+src/pages/sign-in.tsx(58,54): error TS6133: 'ctx' is declared but its value is never read.

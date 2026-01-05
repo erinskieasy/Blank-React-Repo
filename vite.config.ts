@@ -18,7 +18,7 @@ export default defineConfig(({ mode }) => {
     server: {
       port: parseInt(env.CLIENT_PORT) || 5173,
       proxy: {
-        '/api': 'http://localhost:5000',
+        '/api': `http://localhost:${env.PORT || 5000}`,
       },
     },
   }

@@ -1,0 +1,3 @@
+[dotenv@17.2.3] injecting env (3) from .env -- tip: ΓÜÖ∩╕Å  suppress all logs with { quiet: true }
+[DEBUG] Loaded Env Vars: PORT=5000, CLIENT_PORT=8000
+Server is running on port 5000
