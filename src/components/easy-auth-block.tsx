@@ -9,49 +9,46 @@ import {
     AvatarImage,
 } from "@/components/ui/avatar"
 
-import { Loader2, LogOut } from "lucide-react"
+import { LogOut } from "lucide-react"
 
 export function EasyAuthBlock() {
-    const { data: session, isPending } = useSession()
-
-    if (isPending) {
-        return (
-            <div className="flex items-center gap-2">
-                <Loader2 className="h-8 w-8 animate-spin text-muted-foreground" />
-            </div>
-        )
-    }
-
-    if (!session) {
-        return (
-            <Button asChild variant="default" size="sm">
-                <Link to="/sign-in">Sign In</Link>
-            </Button>
-        )
-    }
+    const { data: session } = useSession()
 
     return (
-        <div className="flex items-center gap-4">
-            <div className="hidden flex-col items-end md:flex">
-                <span className="text-sm font-medium leading-none">{session.user.name}</span>
-                <span className="text-xs text-muted-foreground">{session.user.email}</span>
+        <header className="absolute top-0 right-0 p-4 flex items-center gap-4 z-50">
+            <div className="flex items-center gap-4 bg-background/90 backdrop-blur-sm p-2 rounded-full border border-border shadow-sm">
+                {session && (
+                    <div className="hidden flex-col items-end md:flex px-2">
+                        <span className="text-sm font-medium leading-none text-foreground">{session.user.name}</span>
+                        <span className="text-xs text-muted-foreground">{session.user.email}</span>
+                    </div>
+                )}
+
+                {session ? (
+                    <>
+                        <Avatar className="h-8 w-8">
+                            <AvatarImage src={session.user.image || undefined} alt={session.user.name} />
+                            <AvatarFallback>{session.user.name.charAt(0)}</AvatarFallback>
+                        </Avatar>
+
+                        <Button
+                            variant="ghost"
+                            size="icon"
+                            className="rounded-full h-8 w-8 text-muted-foreground hover:text-foreground"
+                            onClick={async () => {
+                                await signOut()
+                            }}
+                        >
+                            <LogOut className="h-4 w-4" />
+                            <span className="sr-only">Sign Out</span>
+                        </Button>
+                    </>
+                ) : (
+                    <Button asChild variant="secondary" size="sm" className="rounded-full px-4">
+                        <Link to="/sign-in">Sign In</Link>
+                    </Button>
+                )}
             </div>
-
-            <Avatar className="h-8 w-8">
-                <AvatarImage src={session.user.image || undefined} alt={session.user.name} />
-                <AvatarFallback>{session.user.name.charAt(0)}</AvatarFallback>
-            </Avatar>
-
-            <Button
-                variant="outline"
-                size="sm"
-                onClick={async () => {
-                    await signOut()
-                }}
-            >
-                <LogOut className="mr-2 h-4 w-4" />
-                Sign Out
-            </Button>
-        </div>
+        </header>
     )
 }

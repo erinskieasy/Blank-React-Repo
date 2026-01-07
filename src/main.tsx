@@ -6,7 +6,7 @@ import './index.css'
 
 // Import pages
 import HomePage from './pages/home-page'
-import SignInPage from './pages/sign-in'
+import SignInPage from './pages/sign-in-page'
 import { EasyAuthBlock } from './components/easy-auth-block'
 
 // Create root route: anything here will be visible on all pages
